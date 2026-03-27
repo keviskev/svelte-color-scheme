@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getSchemeState } from './state.svelte.ts';
   import type { Scheme } from './types.ts';
+  import { capitalize } from './utils.ts';
 
   let picking = $state(false);
 
@@ -37,7 +38,7 @@
 
 <div>
   {#if !picking}
-    <button onclick={pickScheme}>{scheme.label}</button>
+    <button onclick={pickScheme}>{capitalize(scheme.sitePref)}</button>
   {:else}
     <button onclick={() => changeTo('light')}>Light</button>
     <button onclick={() => changeTo('dark')}>Dark</button>

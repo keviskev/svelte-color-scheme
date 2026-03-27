@@ -3,7 +3,6 @@ import { on } from "svelte/events";
 import { getContext, onDestroy, setContext } from "svelte";
 import type { Scheme } from './types.ts';
 import { browser } from "$app/environment";
-import { capitalize } from "./utils.ts";
 
 const QRY = '(prefers-color-scheme: dark)';
 const KEY = Symbol('statekey');
@@ -41,11 +40,6 @@ class SchemeState {
   set = (v: Scheme) => {
     this.#sitePref = v;
     localStorage.setItem('scheme', v);
-  }
-
-  get label(): string {
-    let prefix = this.#sitePref === 'system' ? 'System: ' : '';
-    return `${prefix}${capitalize(this.current)}`
   }
 
   get sitePref() {
