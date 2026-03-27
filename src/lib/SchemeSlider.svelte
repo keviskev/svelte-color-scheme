@@ -1,7 +1,11 @@
-<script>
+<script lang="ts">
   import { getSchemeState } from './state.svelte.ts';
+
   let scheme = getSchemeState();
-  let s = $state(scheme.sitePref);
+  let s = $derived.by(() => {
+    return scheme.sitePref;
+  });
+
   $effect(() => {
     scheme.set(s);
     document.documentElement.dataset.scheme = s;
@@ -47,7 +51,7 @@
     display: none;
   }
   label:has(input[type='radio']:checked) {
-    color: var(--page-element-text-variant);
+    color: var(--page-element-header-color);
   }
   .selector {
     position: absolute;

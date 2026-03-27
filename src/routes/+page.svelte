@@ -4,11 +4,14 @@
 </script>
 
 <div class="container">
+  <h1>Examples</h1>
   <main>
     <section>
+      <h2>Slider</h2>
       <SchemeSlider />
     </section>
     <section>
+      <h2>Button</h2>
       <Scheme />
     </section>
   </main>
@@ -27,8 +30,17 @@
 
   main {
     padding: 1rem;
-    width: 250px;
-    height: 250px;
-    background: var(--element-bg-variant);
+    width: 280px;
+    border: 3px solid var(--mangrove);
+    border-radius: 1rem;
+    background: var(--page-element-bg);
+  }
+
+  section {
+    margin: 1rem auto;
+    padding: 1rem;
+    color: var(--page-element-header-color);
+    border: 2px dashed var(--viking-diva);
+    border-radius: 1rem;
   }
 </style>

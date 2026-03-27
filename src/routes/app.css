@@ -100,6 +100,7 @@ h6 {
   --page-element-accent: var(--pea);
   --page-element-text: var(--midnight-monarch);
   --page-element-text-variant: var(--partial-pink);
+  --page-element-header-color: var(--partial-pink);
   --container-bg: white;
 }
 
@@ -112,6 +113,7 @@ h6 {
   --page-element-accent: var(--ash);
   --page-element-text: var(--partial-pink);
   --page-element-text-variant: var(--midnight-monarch);
+  --page-element-header-color: var(--partial-pink);
   --container-bg: var(--black);
 }
 
