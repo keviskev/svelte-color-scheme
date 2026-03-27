@@ -1,6 +1,6 @@
 <script>
   import SchemeSlider from '$lib/SchemeSlider.svelte';
-  import Scheme from '$lib/Scheme.svelte';
+  import SchemeButton from '$lib/SchemeButton.svelte';
 </script>
 
 <div class="container">
@@ -12,7 +12,7 @@
     </section>
     <section>
       <h2>Button</h2>
-      <Scheme />
+      <SchemeButton />
     </section>
   </main>
 </div>
