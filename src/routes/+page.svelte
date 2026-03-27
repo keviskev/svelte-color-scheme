@@ -41,7 +41,7 @@
     flex-flow: column nowrap;
     align-items: center;
     margin: 1rem auto;
-    padding: 0 1rem 1rem 0;
+    padding: 1rem 0 1rem 0;
     color: var(--page-element-header-color);
     border: 2px dashed var(--viking-diva);
     border-radius: 1rem;
