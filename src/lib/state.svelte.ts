@@ -2,7 +2,6 @@ import { MediaQuery } from "svelte/reactivity";
 import { on } from "svelte/events";
 import { getContext, onDestroy, setContext } from "svelte";
 import type { Scheme } from './types.ts';
-import { browser } from "$app/environment";
 
 const QRY = '(prefers-color-scheme: dark)';
 const KEY = Symbol('statekey');
@@ -21,7 +20,7 @@ class SchemeState {
       }
   });
   
-  constructor() {
+  constructor(browser:boolean) {
     if (browser) {
       this.#sitePref = localStorage.getItem('scheme') as Scheme ?? 'system';
       this.#removeStorageListener = on(window, 'storage', (e: StorageEvent) => {
@@ -48,7 +47,8 @@ class SchemeState {
 }
 
 export function createSchemeState() {
-  return setContext<SchemeState>(KEY, new SchemeState());
+  const inBrowser = typeof window !== 'undefined';
+  return setContext<SchemeState>(KEY, new SchemeState(inBrowser));
 }
 
 export function getSchemeState() {
