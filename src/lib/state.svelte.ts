@@ -1,7 +1,9 @@
 import { MediaQuery } from "svelte/reactivity";
 import { on } from "svelte/events";
 import { getContext, onDestroy, setContext } from "svelte";
-import type { Scheme } from './types.ts';
+import { type Scheme } from './types.ts';
+
+export type { Scheme };
 
 const QRY = '(prefers-color-scheme: dark)';
 const KEY = Symbol('statekey');
