@@ -1,6 +1,6 @@
 <script>
-  import SchemeSlider from '$lib/SchemeSlider.svelte';
-  import SchemeButton from '$lib/SchemeButton.svelte';
+  import SchemeSlider from './SchemeSlider.svelte';
+  import SchemeButton from './SchemeButton.svelte';
 </script>
 
 <div class="container">

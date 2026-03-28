@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getSchemeState, type Scheme } from './state.svelte.ts';
+  import { getSchemeState, type Scheme } from '../lib/./state.svelte.ts';
 
   let picking = $state(false);
 

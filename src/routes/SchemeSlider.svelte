@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getSchemeState } from './state.svelte.ts';
+  import { getSchemeState } from '../lib/state.svelte.ts';
 
   let scheme = getSchemeState();
   let s = $derived.by(() => {
