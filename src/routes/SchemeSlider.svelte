@@ -66,17 +66,17 @@
   }
   label:has(input[type='radio'].l:checked) ~ .selector {
     transform: translateX(0%);
-    background: var(--pea);
+    background: var(--pa);
     width: 30%;
   }
   label:has(input[type='radio'].s:checked) ~ .selector {
     transform: translateX(87.7%);
-    background: var(--viking-diva);
+    background: var(--nd);
     width: 37%;
   }
   label:has(input[type='radio'].d:checked) ~ .selector {
     transform: translateX(235%);
-    background: var(--ash);
+    background: var(--ah);
     width: 30%;
   }
 </style>

@@ -39,7 +39,7 @@
   main {
     padding: 1rem;
     width: 280px;
-    border: 3px solid var(--mangrove);
+    border: 3px solid var(--ah);
     border-radius: 1rem;
     background: var(--page-element-bg);
   }
@@ -50,7 +50,7 @@
     align-items: center;
     padding: 1rem 0 1rem 0;
     color: var(--page-element-header-color);
-    border: 2px dashed var(--viking-diva);
+    border: 2px dashed var(--page-element-accent);
     border-radius: 1rem;
   }
 

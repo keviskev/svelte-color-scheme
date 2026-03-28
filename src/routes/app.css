@@ -66,55 +66,40 @@ h6 {
 
 :root {
 
-  --black: oklch(19% 0.035 222);
+  --b: oklch(19% 0.035 222);
 
-  /* theme1 - primary color*/
-  --midnight-monarch: oklch(16% 0.07 308);
-  --royal-crown: oklch(36% 0.07 308);
-  --nymphs-delight: oklch(56% 0.07 308);
-  --viking-diva: oklch(80% 0.07 308);
-  --neon-boneyard: oklch(90% 0.07 308);
-  --partial-pink: oklch(98% 0.07 308);
+  --mm: oklch(16% 0.07 308);
+  --rc: oklch(36% 0.07 308);
+  --nd: oklch(56% 0.07 308);
+  --nb: oklch(90% 0.07 308);
+  --pp: oklch(98% 0.07 308);
+  --ah: oklch(80% 0.034 105);
+  --sm: oklch(90% 0.034 105);
+  --bm: oklch(98% 0.034 105);
+  --pa: oklch(75% 0.185 123);
 
-  /* theme1 - neutral color */
-  --king-kong: oklch(16% 0.034 105);
-  --olive-leaf: oklch(36% 0.034 105);
-  --mangrove: oklch(56% 0.034 105);
-  --ash: oklch(80% 0.034 105);
-  --sip-of-mint: oklch(90% 0.034 105);
-  --buttermilk: oklch(98% 0.034 105);
-
-  /* theme1 - accent color */
-  --godzilla: oklch(40% 0.185 123);
-  --green-thumb: oklch(60% 0.185 123);
-  --pea: oklch(75% 0.185 123);
-  --queen-of-gardens: oklch(85% 0.185 123);
-  --ultra-moss: oklch(96% 0.185 123);
-  --white-moss: oklch(100% 0.185 123);
-
-  --header-bg: var(--royal-crown);
-  --header-text: var(--buttermilk);
-  --body-bg: linear-gradient(148deg, var(--buttermilk), var(--sip-of-mint));
-  --page-element-bg: var(--royal-crown);
-  --page-element-bg-variant: var(--buttermilk);
-  --page-element-accent: var(--pea);
-  --page-element-text: var(--midnight-monarch);
-  --page-element-text-variant: var(--partial-pink);
-  --page-element-header-color: var(--partial-pink);
-  --container-bg: white;
+  --header-bg: var(--rc);
+  --header-text: var(--bm);
+  --page-element-bg: var(--rc);
+  --page-element-bg-variant: var(--bm);
+  --page-element-accent: var(--pa);
+  --page-element-text: var(--mm);
+  --page-element-text-variant: var(--pp);
+  --page-element-header-color: var(--pp);
+  --container-bg: linear-gradient(148deg, white, white, var(--sm));
 }
 
 :root[data-scheme="dark"] {
-  --header-bg: linear-gradient(148deg, var(--royal-crown), var(--midnight-monarch), var(--midnight-monarch));
-  --header-text: var(--neon-boneyard);
-  --body-bg: linear-gradient(148deg, var(--nymphs-delight), var(--midnight-monarch));
-  --page-element-bg: var(--midnight-monarch);
-  --page-element-bg-variant: var(--royal-crown);
-  --page-element-accent: var(--ash);
-  --page-element-text: var(--partial-pink);
-  --page-element-text-variant: var(--midnight-monarch);
-  --page-element-header-color: var(--partial-pink);
-  --container-bg: var(--black);
+  --header-bg: linear-gradient(148deg, var(--rc), var(--mm), var(--mm));
+  --header-text: var(--nb);
+  --body-bg: linear-gradient(148deg, var(--nd), var(--mm));
+  --page-element-bg: var(--rc);
+  --page-element-bg-variant: var(--mm);
+  --page-element-accent: var(--ah);
+  --page-element-text: var(--pp);
+  --page-element-text-variant: var(--mm);
+  --page-element-header-color: var(--pp);
+  --container-bg: linear-gradient(148deg, var(--nd), var(--nd), var(--mm));
 }
 
 body {
