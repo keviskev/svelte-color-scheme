@@ -47,4 +47,15 @@
 </div>
 
 <style>
+  button {
+    all: unset;
+    background: var(--page-element-bg-variant);
+    color: var(--page-element-text);
+    padding: 0.15rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+  button:hover {
+    background: var(--page-element-accent);
+    color: var(--page-element-text-variant);
+  }
 </style>

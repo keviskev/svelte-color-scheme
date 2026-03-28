@@ -26,6 +26,14 @@
     height: 100vh;
     width: 100vw;
     background: var(--container-bg);
+    color: var(--header-text);
+
+    h1 {
+      background: var(--header-bg);
+      padding: 0 1rem;
+      margin: 0 0 1rem 0;
+      border-radius: 0.5rem;
+    }
   }
 
   main {
@@ -40,10 +48,13 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin: 1rem auto;
     padding: 1rem 0 1rem 0;
     color: var(--page-element-header-color);
     border: 2px dashed var(--viking-diva);
     border-radius: 1rem;
+  }
+
+  section:nth-child(n + 2) {
+    margin: 0.75rem 0 0 0;
   }
 </style>
