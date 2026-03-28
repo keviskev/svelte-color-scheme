@@ -1,65 +1,38 @@
-# Svelte library
+# svelte-color-scheme
+This package is a sveltekit library that uses a context to expose a
+state class that watches the system color scheme preference and
+a localStorage variable called scheme to override it.
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+## installing
+  `npm|pnpm|yarn install svelte-color-scheme`
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## what you get when you install
 
-## Creating a project
+  1) two functions to create and retrieve the scheme state object.
+  2) a SchemeDatasetHeader element to add an iife to svelte:head on
+  first load that will set a data attribute called scheme on the html
+  element.
+  3) a SchemeClassHeader element to add an iiffe to svelte:head on
+  first load that will add a dark class to the html element.
+   
+## how to use in your sveltekit project
 
-If you're seeing this, you've probably already done this step. Congrats!
+  1) import the createSchemeState function and the SchemeHeader component 
+  in your +layout.svelte file.
+  2) call createSchemeState() in the script of +layout.svelte
+  3) add the SchemeDatasetHeader or SchemeClassHeader component to your
+  +layout.svelte if you want first time visitors' dark setting to be honored.
+  4) import getSchemaState in your scheme selection code 
+  5) store a class instance in a variable and get/set the state.
+  6) wire up the ui to the state
+  7) create an $effect that uses the state to toggle the dataset or classlist
+  8) watch the scheme change in all open tabs :)
+  
+## expected behavior
 
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-pnpm dlx sv@0.13.0 create --template library --types ts --add prettier eslint playwright vitest="usages:unit,component" --install pnpm svelte-color-scheme
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
-
-## Building
-
-To build your library:
-
-```sh
-npm pack
-```
-
-To create a production version of your showcase app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```sh
-npm publish
-```
+  1) first time visitors will get the system's current scheme
+  2) setting the state to light or dark will override the system preference
+  indefinitely unless the localStorage is cleared.
+  3) on systems that have an auto setting based on time of day, the scheme will
+  auto update without the need for intervention.
+  4) all instances in the current session should change together.
