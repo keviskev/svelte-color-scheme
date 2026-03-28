@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { getSchemeState } from './state.svelte.ts';
-  import type { Scheme } from './types.ts';
-  import { capitalize } from './utils.ts';
+  import { getSchemeState, type Scheme } from './state.svelte.ts';
 
   let picking = $state(false);
 
@@ -18,6 +16,10 @@
   function changeTo(str: Scheme) {
     scheme.set(str);
     picking = false;
+  }
+
+  function capitalize(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 </script>
 
