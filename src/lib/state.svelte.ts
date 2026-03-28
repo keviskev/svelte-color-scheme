@@ -1,6 +1,6 @@
 import { MediaQuery } from "svelte/reactivity";
 import { on } from "svelte/events";
-import { getContext, onDestroy, setContext } from "svelte";
+import { getContext, hasContext, onDestroy, setContext } from "svelte";
 import { type Scheme } from './types.ts';
 
 export type { Scheme };
@@ -54,6 +54,10 @@ export function createSchemeState() {
 }
 
 export function getSchemeState() {
+  if (!hasContext(KEY)) {
+    throw new Error('did you forget to call createSchemeState?');
+  }
+
   return getContext<ReturnType<typeof createSchemeState>>(KEY); 
 }
 
