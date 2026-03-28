@@ -45,3 +45,8 @@ acheive this.
   4) all instances in the current session should change together when either the
   override or system scheme changes.
 
+## how to run the examples
+  1) clone this repo to a folder on your system
+  2) npm|pnpm install
+  3) npm|pnpm run dev --open
+  4) click the button or the slider
