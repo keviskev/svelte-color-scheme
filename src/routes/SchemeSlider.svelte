@@ -8,7 +8,7 @@
 
   $effect(() => {
     scheme.set(s);
-    document.documentElement.dataset.scheme = s;
+    document.documentElement.dataset.scheme = scheme.current;
   });
 </script>
 
