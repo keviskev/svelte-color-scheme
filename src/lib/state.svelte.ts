@@ -15,10 +15,10 @@ class SchemeState {
   #removeStorageListener:VoidFunction;
   
   current = $derived.by(() => {
-      if (this.#site !== 'system') {
-        return this.#site;
-      } else {
+      if (this.#site === 'system') {
         return this.#system;
+      } else {
+        return this.#site;
       }
   });
   
