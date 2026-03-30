@@ -11,12 +11,12 @@ const KEY = Symbol('statekey');
 class SchemeState {
   #systemQuery = new MediaQuery(QRY);
   #systemPref = $derived<Scheme>(this.#systemQuery.current ? 'dark' : 'light');
-  #sitePref = $state<Scheme>('system');
+  #site = $state<Scheme>('system');
   #removeStorageListener:VoidFunction;
   
   current = $derived.by(() => {
-      if (this.#sitePref !== 'system') {
-        return this.#sitePref;
+      if (this.#site !== 'system') {
+        return this.#site;
       } else {
         return this.#systemPref;
       }
@@ -24,10 +24,10 @@ class SchemeState {
   
   constructor(browser:boolean) {
     if (browser) {
-      this.#sitePref = localStorage.getItem('scheme') as Scheme ?? 'system';
+      this.#site = localStorage.getItem('scheme') as Scheme ?? 'system';
       this.#removeStorageListener = on(window, 'storage', (e: StorageEvent) => {
         if (e.key === 'scheme') {
-          this.#sitePref = e.newValue as Scheme ?? 'system';
+          this.#site = e.newValue as Scheme ?? 'system';
         }          
       })
       onDestroy(() => {
@@ -39,12 +39,12 @@ class SchemeState {
   }
 
   set = (v: Scheme) => {
-    this.#sitePref = v;
+    this.#site = v;
     localStorage.setItem('scheme', v);
   }
 
-  get sitePref() {
-    return this.#sitePref;
+  get site() {
+    return this.#site;
   }
 }
 

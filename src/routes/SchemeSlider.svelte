@@ -3,7 +3,7 @@
 
   let scheme = getSchemeState();
   let s = $derived.by(() => {
-    return scheme.sitePref;
+    return scheme.site;
   });
 
   $effect(() => {

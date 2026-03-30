@@ -25,7 +25,7 @@
 
 <div>
   {#if !picking}
-    <button onclick={pickScheme}>{capitalize(scheme.sitePref)}</button>
+    <button onclick={pickScheme}>{capitalize(scheme.site)}</button>
   {:else}
     <button onclick={() => changeTo('light')}>Light</button>
     <button onclick={() => changeTo('dark')}>Dark</button>
