@@ -10,7 +10,7 @@ const KEY = Symbol('statekey');
 
 class SchemeState {
   #systemQuery = new MediaQuery(QRY);
-  #systemPref = $derived<Scheme>(this.#systemQuery.current ? 'dark' : 'light');
+  #system = $derived<Scheme>(this.#systemQuery.current ? 'dark' : 'light');
   #site = $state<Scheme>('system');
   #removeStorageListener:VoidFunction;
   
@@ -18,7 +18,7 @@ class SchemeState {
       if (this.#site !== 'system') {
         return this.#site;
       } else {
-        return this.#systemPref;
+        return this.#system;
       }
   });
   
