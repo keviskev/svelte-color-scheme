@@ -5,10 +5,8 @@ import { onDestroy } from "svelte";
 export type SystemScheme = 'light' | 'dark';
 export type SiteScheme = 'light' | 'dark' | 'system';
 
-const QRY = '(prefers-color-scheme: dark)';
-
 export class SchemeState {
-  #systemQuery = new MediaQuery(QRY);
+  #systemQuery = new MediaQuery('(prefers-color-scheme: dark)');
   #system = $derived<SystemScheme>(this.#systemQuery.current ? 'dark' : 'light');
   #site = $state<SiteScheme>('system');
   #removeStorageListener:VoidFunction;
