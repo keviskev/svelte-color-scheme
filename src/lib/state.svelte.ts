@@ -1,11 +1,11 @@
 import { getContext, hasContext, setContext } from "svelte";
-import { SchemeState } from './schemeClass.svelte.ts';
+import { SchemeState, type OverrideOptions } from './schemeClass.svelte.ts';
 
 const KEY = Symbol('statekey');
 
-export function createSchemeState() {
-  const inBrowser = typeof window !== 'undefined';
-  return setContext<SchemeState>(KEY, new SchemeState(inBrowser));
+export function createSchemeState(opts: OverrideOptions = {}) {
+  const browser = typeof window !== 'undefined';
+  return setContext<SchemeState>(KEY, new SchemeState({browser, ...opts}));
 }
 
 export function getSchemeState() {
