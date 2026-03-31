@@ -6,7 +6,11 @@
   const scheme = getSchemeState();
 
   $effect(() => {
-    document.documentElement.dataset.scheme = scheme.current;
+    if (scheme.current === 'dark') {
+      document.documentElement.dataset.scheme = 'dark';
+    } else {
+      delete document.documentElement.dataset.scheme;
+    }
   });
 
   function pickScheme() {
