@@ -1,16 +1,12 @@
 # svelte-color-scheme
-a sveltekit library that exposes a context containing a
-class instance whose purpose is to watch the system color scheme
-preference and a localStorage variable called scheme to override
-that system setting. The default setting of 'system' means that the
-SchemeState instance's current value will always match the system setting
-of 'light' or 'dark', and that updating the value with .set method to 'light'
-or 'dark' will override the system setting accordingly. The state class
-uses $state and $derivied along with MediaQuery and svelte/events to
-acheive this. 
+A sveltekit library for managing light and dark mode for a site.
 
 ## installing
-  `npm|pnpm|yarn install svelte-color-scheme`
+  ### npm
+  `npm install svelte-color-scheme`
+
+  ### pnpm
+  `pnpm install svelte-color-scheme`
 
 ## what you get when you install
 
