@@ -2,16 +2,16 @@ import { MediaQuery } from "svelte/reactivity";
 import { on } from "svelte/events";
 import { getContext, hasContext, onDestroy, setContext } from "svelte";
 
-export const Scheme = ['light', 'dark', 'system'] as const;
-export type Scheme = (typeof Scheme)[number]
+export type SystemScheme = 'light' | 'dark';
+export type SiteScheme = 'light' | 'dark' | 'system';
 
 const QRY = '(prefers-color-scheme: dark)';
 const KEY = Symbol('statekey');
 
 class SchemeState {
   #systemQuery = new MediaQuery(QRY);
-  #system = $derived<Scheme>(this.#systemQuery.current ? 'dark' : 'light');
-  #site = $state<Scheme>('system');
+  #system = $derived<SystemScheme>(this.#systemQuery.current ? 'dark' : 'light');
+  #site = $state<SiteScheme>('system');
   #removeStorageListener:VoidFunction;
   
   current = $derived.by(() => {
@@ -24,10 +24,10 @@ class SchemeState {
   
   constructor(browser:boolean) {
     if (browser) {
-      this.#site = localStorage.getItem('scheme') as Scheme ?? 'system';
+      this.#site = localStorage.getItem('scheme') as SiteScheme ?? 'system';
       this.#removeStorageListener = on(window, 'storage', (e: StorageEvent) => {
         if (e.key === 'scheme') {
-          this.#site = e.newValue as Scheme ?? 'system';
+          this.#site = e.newValue as SiteScheme ?? 'system';
         }          
       })
       onDestroy(() => {
@@ -38,13 +38,17 @@ class SchemeState {
     }
   }
 
-  set = (v: Scheme) => {
+  set = (v: SiteScheme) => {
     this.#site = v;
     localStorage.setItem('scheme', v);
   }
 
-  get site() {
+  get site(): SiteScheme {
     return this.#site;
+  }
+
+  get system(): SystemScheme {
+    return this.#system;
   }
 }
 

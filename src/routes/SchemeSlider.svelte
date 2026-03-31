@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { getSchemeState } from '../lib/state.svelte.ts';
+  import { getSchemeState, type SiteScheme } from '../lib/state.svelte.ts';
 
   let scheme = getSchemeState();
-  let s = $derived.by(() => {
-    return scheme.site;
-  });
+  let s: SiteScheme = $derived(scheme.site);
 
   $effect(() => {
     scheme.set(s);

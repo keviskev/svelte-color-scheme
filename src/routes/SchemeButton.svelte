@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getSchemeState, type Scheme } from '../lib/./state.svelte.ts';
+  import { getSchemeState, type SiteScheme } from '../lib/./state.svelte.ts';
 
   let picking = $state(false);
 
@@ -17,7 +17,7 @@
     picking = true;
   }
 
-  function changeTo(str: Scheme) {
+  function changeTo(str: SiteScheme) {
     scheme.set(str);
     picking = false;
   }
