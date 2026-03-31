@@ -5,13 +5,43 @@ import { getContext, hasContext, onDestroy, setContext } from "svelte";
 export type SystemScheme = 'light' | 'dark';
 export type SiteScheme = 'light' | 'dark' | 'system';
 
+export type Options = {
+  default: SiteScheme
+}
+
+export type OverrideOptions = {
+  default?: SiteScheme
+}
+
 const QRY = '(prefers-color-scheme: dark)';
 const KEY = Symbol('statekey');
+
+const options: Options = {
+  default: 'system' 
+}
+
+export function createSchemeState(override: OverrideOptions = {}) {
+  const inBrowser = typeof window !== 'undefined';
+
+  if (override.default) {
+    options.default = override.default
+  }
+
+  return setContext<SchemeState>(KEY, new SchemeState(inBrowser));
+}
+
+export function getSchemeState() {
+  if (!hasContext(KEY)) {
+    throw new Error('did you forget to call createSchemeState?');
+  }
+
+  return getContext<ReturnType<typeof createSchemeState>>(KEY); 
+}
 
 class SchemeState {
   #systemQuery = new MediaQuery(QRY);
   #system = $derived<SystemScheme>(this.#systemQuery.current ? 'dark' : 'light');
-  #site = $state<SiteScheme>('system');
+  #site = $state<SiteScheme>(options.default);
   #removeStorageListener:VoidFunction;
   
   current = $derived.by(() => {
@@ -24,10 +54,10 @@ class SchemeState {
   
   constructor(browser:boolean) {
     if (browser) {
-      this.#site = localStorage.getItem('scheme') as SiteScheme ?? 'system';
+      this.#site = localStorage.getItem('scheme') as SiteScheme ?? options.default;
       this.#removeStorageListener = on(window, 'storage', (e: StorageEvent) => {
         if (e.key === 'scheme') {
-          this.#site = e.newValue as SiteScheme ?? 'system';
+          this.#site = e.newValue as SiteScheme ?? options.default;
         }          
       })
       onDestroy(() => {
@@ -50,18 +80,5 @@ class SchemeState {
   get system(): SystemScheme {
     return this.#system;
   }
-}
-
-export function createSchemeState() {
-  const inBrowser = typeof window !== 'undefined';
-  return setContext<SchemeState>(KEY, new SchemeState(inBrowser));
-}
-
-export function getSchemeState() {
-  if (!hasContext(KEY)) {
-    throw new Error('did you forget to call createSchemeState?');
-  }
-
-  return getContext<ReturnType<typeof createSchemeState>>(KEY); 
 }
 
