@@ -1,4 +1,4 @@
-# svelte-color-scheme
+# @lineus/svelte-color-scheme
   **_A library for managing light and dark mode for a sveltekit site._**
 
 ## Summary
@@ -7,7 +7,7 @@
   and svelte reactivity to track both the visitor's system scheme preference
   and their preference on your site to update the current scheme.  
 
-  ![site has 3 options. light, dark, and system. light and dark take precedence over system which when selected is either light or dark based on your system setting](color-scheme-priority.png)
+  ![site has 3 options. light, dark, and system. light and dark take precedence over system which when selected is either light or dark based on your system setting](https://github.com/keviskev/svelte-color-scheme/blob/main/color-scheme-priority.png?raw=true)
 
 ## Expected Default Behavior
   1) First time visitors will get their system's current scheme.
@@ -29,10 +29,10 @@
   
 ## Installing
   ### npm
-  ```npm install svelte-color-scheme```
+  ```npm install @lineus/svelte-color-scheme```
 
   ### pnpm
-  ```pnpm install svelte-color-scheme```
+  ```pnpm install @lineus/svelte-color-scheme```
 
 ## Provides
 

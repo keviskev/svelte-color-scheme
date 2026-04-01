@@ -1,6 +1,6 @@
 {
 	"name": "@lineus/svelte-color-scheme",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && pnpm run prepack",
@@ -18,8 +18,7 @@
 	"files": [
 		"dist",
 		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*",
-		"color-scheme-priority.png"
+		"!dist/**/*.spec.*"
 	],
 	"sideEffects": [
 		"**/*.css"
@@ -64,5 +63,9 @@
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"repository": {
+		"type": "git",
+		"url": "github:keviskev/svelte-color-scheme"
+	}
 }
