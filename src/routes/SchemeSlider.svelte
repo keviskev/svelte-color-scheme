@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { getSchemeState, type SiteScheme } from '../lib/state.svelte.ts';
+  import { getSchemeState } from '../lib/state.svelte.ts';
+  import { type SiteScheme } from '../lib/schemeClass.svelte.ts';
 
   let scheme = getSchemeState();
   let s: SiteScheme = $derived(scheme.site);
