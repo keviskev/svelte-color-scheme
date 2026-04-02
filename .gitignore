@@ -27,3 +27,5 @@ test-results
 
 # pnpm pack output
 *.tgz
+
+Caddyfile
